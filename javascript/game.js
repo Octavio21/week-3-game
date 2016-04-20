@@ -38,16 +38,20 @@ document.onkeyup = function(event) {
 	// Covers logic of game
     if (userGuess == computerGuess) {
         guessed = true;
-        
+        wins++;
+
     }
+
 	
 	var result;
 	if (guessed) result = 'Correctly guessed';
     else if (chances_left > 0) result = chances_left + ' chances left to guess';
-    else result = 'you lost';
+    else result = 'your not psychich';
+
+
     
-    document.querySelector("#wins").innerHTML=wins;
-    document.querySelector("#losses").innerHTML=losses;	
+    document.querySelector("#wins").innerHTML= "Number of Wins:" + wins;
+    document.querySelector("#losses").innerHTML=" Number of loses:" +losses;	
 	document.querySelector("#game").innerHTML=result;
 	document.querySelector("#guess").innerHTML += ' ' + userGuess;
 }
