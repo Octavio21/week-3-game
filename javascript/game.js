@@ -14,7 +14,13 @@ var losses = 0
 var chances_left = 9;
 var guessed = false;
 
+
+
 // Captures Key Clicks
+
+
+
+
 document.onkeyup = function(event) {
     if (chances_left == 0 || guessed) return ;
     
@@ -32,13 +38,16 @@ document.onkeyup = function(event) {
 	// Covers logic of game
     if (userGuess == computerGuess) {
         guessed = true;
+        
     }
 	
 	var result;
 	if (guessed) result = 'Correctly guessed';
     else if (chances_left > 0) result = chances_left + ' chances left to guess';
-    else result = 'Chances finished';
-    	
+    else result = 'you lost';
+    
+    document.querySelector("#wins").innerHTML=wins;
+    document.querySelector("#losses").innerHTML=losses;	
 	document.querySelector("#game").innerHTML=result;
 	document.querySelector("#guess").innerHTML += ' ' + userGuess;
 }
